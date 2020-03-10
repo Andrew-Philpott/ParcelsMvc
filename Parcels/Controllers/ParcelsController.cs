@@ -5,16 +5,16 @@ namespace Parcels.Controllers
 {
   public class ParcelsController : Controller
   {
-    [HttpGet("/")]
+    [HttpGet("/parcels")]
     public ActionResult Index()
     {
       return View();
     }
 
-    [HttpGet("/parcels")]
-    public ActionResult Index()
+    [HttpPost("/parcels")]
+    public ActionResult New()
     {
-      return View();
+      return RedirectToAction("Index");
     }
   }
 }
