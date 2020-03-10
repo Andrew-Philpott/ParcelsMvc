@@ -28,24 +28,21 @@ namespace Parcels.Models
     public double CostToShip()
     {
       int volume = Volume();
-      int sizeMultiplier = 0;
-      if (volume < 20)
+      int pricePerPound = 0;
+      double baseRate = 5.99;
+      double additionalCosts = 0;
+      if (volume > 20 && volume <= 50)
       {
-        sizeMultiplier = 2;
-      }
-      else if (volume >= 20 && volume <= 50)
-      {
-        sizeMultiplier = 3;
+        pricePerPound = 1;
+        additionalCosts = (pricePerPound * Weight);
       }
       else if (volume <= 100)
       {
-        sizeMultiplier = 4;
+        baseRate = 20.00;
+        pricePerPound = 3;
+        additionalCosts = (pricePerPound * Weight);
       }
-      else
-      {
-        sizeMultiplier = 7;
-      }
-      return sizeMultiplier * volume;
+      return baseRate + additionalCosts;
     }
   }
 }
