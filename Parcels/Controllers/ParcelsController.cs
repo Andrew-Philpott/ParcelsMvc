@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Parcels.Models;
+using System.Threading.Tasks;
 
 namespace Parcels.Controllers
 {
@@ -21,7 +22,15 @@ namespace Parcels.Controllers
     public ActionResult New(int width, int length, int depth, double weight)
     {
       Parcel parcel = new Parcel(width, length, depth, weight);
-      return View("Index",parcel);
+     
+      TryValidateModel(parcel);
+
+      if (ModelState.IsValid)
+      {
+        return View("Index", parcel);
+      }
+
+      return View("New");
     }
   }
 }

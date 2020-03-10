@@ -1,17 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Parcels.Models
 {
 
   public class Parcel
   {
+    // [Range(1,100, ErrorMessage = "Number must be greater than 1")]
     public int Width { get; }
 
+    // [Range(1,100, ErrorMessage = "Number must be greater than 1")]
     public int Length { get; }
 
+    // [Range(1,100, ErrorMessage = "Number must be greater than 1")]
     public int Depth { get; }
+    
+    // [Range(1,100, ErrorMessage = "Number must be greater than 1")]
     public double Weight { get; }
+
     public Parcel(int width, int length, int depth, double weight)
     {
       Width = width;
