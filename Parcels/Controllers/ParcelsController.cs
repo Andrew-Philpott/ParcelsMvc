@@ -10,5 +10,11 @@ namespace Parcels.Controllers
     {
       return View();
     }
+
+    [HttpGet("/parcels")]
+    public ActionResult Index()
+    {
+      return View();
+    }
   }
 }
