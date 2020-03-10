@@ -11,10 +11,17 @@ namespace Parcels.Controllers
       return View();
     }
 
-    [HttpPost("/parcels")]
+    [HttpGet("/parcels/new")]
     public ActionResult New()
     {
-      return RedirectToAction("Index");
+      return View();
+    }
+
+    [HttpPost("/parcels")]
+    public ActionResult New(int width, int length, int depth, double weight)
+    {
+      Parcel parcel = new Parcel(width, length, depth, weight);
+      return View("Index",parcel);
     }
   }
 }
